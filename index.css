@@ -1,0 +1,388 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Consolas', Arial, Helvetica, sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-input {
+  display: block;
+  position: relative;
+  width: 300px;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  margin-right: 20px;
+  outline: none;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-input:focus {
+  /* border: 1px solid #0d6efd; */
+  transition: #0d6efd .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-button {
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  border: 1px solid #0d6efd;
+  border-radius: 5px;
+  flex-shrink: 0;
+  text-align: center;
+  background-color: #0d6efd;
+}
+
+.wrapper {
+  display: none;
+  position: absolute;
+  width: 300px;
+  padding: 6px 12px;
+  top: 48px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-top: none;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.city-list {
+  margin: 0;
+  padding: 0px 0px;
+  list-style-type: none;
+}
+
+.city-item {
+  margin-bottom: 5px;
+}
+
+.city-item-btn {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: left;
+}
+
+.city-item-btn:hover {
+  cursor: pointer;
+  background-color: #e7e5e5;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  background: url(./image/baground.jpg) no-repeat;
+  background-size: cover;
+  min-height: 650px;
+  position: relative;
+  padding-top: 20px;
+}
+
+.container-text {
+  display: flex;
+  width: 100%;
+  position: relative;
+  font-size: 50px;
+  font-family:  cursive;
+  color: #fff;
+}
+
+.container-text-1 {
+  position: absolute;
+  text-align: center;
+  top: 29px;
+  left: 3%;
+}
+
+.container-text-2 {
+  position: absolute;
+  text-align: center;
+  top: 200px;
+  right: 17%;
+}
+
+.container-text-3 {
+  position: absolute;
+  text-align: center;
+  top: 410px;
+  left: 20%;
+}
+
+.container-text-4 {
+  position: absolute;
+  text-align: center;
+  top: 539px;
+  right: 6%;
+}
+
+.weather-container {
+  display: none;
+  width: 100%;
+}
+
+.today-weather {
+  margin: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  color: #fff;
+}
+
+.city {
+  display: flex;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.time {
+  font-size: 24px;
+}
+
+.weather {
+  display: flex;
+  max-width: 540px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:  space-evenly;;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.icon-temp {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  border-right: 2px solid #ffffff;
+}
+
+.temp {
+  font-size: 80px;
+  line-height: 60px;
+}
+
+.сelsius {
+  font-size: 55px;
+}
+
+.pattern-humidity {
+  display: flex;
+  flex-direction: column;
+}
+
+.pattern {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+.humidity {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.fiveDay-weather {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 50px 0;
+  gap: 20px;
+}
+
+.day-cart {
+  display: flex;
+  width: 165px;
+  height: 279px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  border: solid 1px #ffffff29;
+  backdrop-filter: blur(30px);
+  color: #fff;
+  font-size: 18px;
+}
+
+.day-week {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  font-weight: bold;
+}
+
+.one .day-temp {
+  height: 50px;
+}
+
+.night-temp, .day-temp {
+  height: 35px;
+  font-size: 20px;
+}
+
+.real-feel {
+  display: flex;
+  width: 100%;
+  height: 64px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #071a47;
+  border-radius: 0 0 8px 8px;
+}
+
+.displayOn {
+  display: block;
+}
+
+.displayOf {
+  display: none;
+}
+
+.container-2 {
+  display: flex;
+  margin: 20px 40px;
+}
+
+.city-list-recent-place {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.recent-place-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100px;
+  height: 150px;
+  position: relative;
+  margin: 10px;
+  background-image: url(./image/baground-cart.jpg);
+  background-size: contain;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.city-item-btn-delete {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: #fff;
+  background-color: #e56565;
+  border-radius: 4px;
+}
+
+.recent-place-cart .btn {
+  opacity: 0;
+  transition: all .2s;
+}
+
+.recent-place-cart:hover button {
+  opacity: 1;
+}
+
+/* .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: rgba(0, 140, 255, 0.54);
+  color: black;
+} */
+
+
+
+
+
+/* .city-list {
+  padding: 20px 20px 10px;
+  list-style-type: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  background-color: #ffffff;
+  transition: all .2s;
+  user-select: none;
+  font-size: 1rem;
+}
+
+.todo-item.completed * {
+  color: lightgray;
+}
+
+.todo-item .checkbox {
+  margin-right: .5rem;
+}
+
+.todo-title,
+.todo-input {
+  margin-right: auto;
+}
+
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+}
+
+.todo-item.editing .todo-title {
+  display: none;
+}
+
+.todo-item .todo-input {
+  display: none;
+}
+
+.todo-item.editing .todo-input {
+  display: block;
+}
+
+.todo-item .btn {
+  opacity: 0;
+  transition: all .2s;
+}
+
+.todo-item:hover button:not(.checkbox) {
+  opacity: 1;
+}
+
+.todo-item-btn-edit {
+  margin-left: 10px;
+}
+
+.todo-item-btn-edit,
+.todo-item-btn-delete {
+  margin-right: 10px;
+} */
