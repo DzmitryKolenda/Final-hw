@@ -92,9 +92,18 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  background: url(./image/baground.jpg) no-repeat;
+  background: url(./image/baground-2.jpg) no-repeat;
   background-size: cover;
+  min-height: 924px;
+  position: relative;
+  padding-top: 20px;
+}
+
+.container-1 {
+  display: flex;
+  width: 100%;
   min-height: 610px;
   position: relative;
   padding-top: 20px;
@@ -114,27 +123,6 @@ body {
   text-align: center;
   top: 29px;
   left: 3%;
-}
-
-.container-text-2 {
-  position: absolute;
-  text-align: center;
-  top: 200px;
-  right: 17%;
-}
-
-.container-text-3 {
-  position: absolute;
-  text-align: center;
-  top: 410px;
-  left: 20%;
-}
-
-.container-text-4 {
-  position: absolute;
-  text-align: center;
-  top: 524px;
-  right: 6%;
 }
 
 .weather-container {
@@ -241,28 +229,35 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #071a47;
+  background: rgba(0, 0, 0, 55%);
   border-radius: 0 0 8px 8px;
 }
 
 .displayOn {
-  display: block;
+  display: block !important;
 }
 
 .displayOf {
   display: none;
 }
 
-/* .container-2 {
+.container-2 {
   display: flex;
   width: 100%;
-  min-height: 250px;
-  background: url(./image/baground-4.jpg);
-  background-size: 100%;
-} */
+  color: #fff;
+}
 
 .wrapper-2 {
+  display: none;
+  width: 100%;
   margin: 0px 40px;
+}
+
+.real-place-head {
+  display: flex;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .city-list-recent-place {
@@ -282,10 +277,8 @@ body {
   height: 150px;
   position: relative;
   margin: 10px;
-  background-image: url(./image/baground-cart.jpg);
-  background-size: contain;
+  background: rgba(0, 0, 0, 75%);
   border-radius: 5px;
-  color: #fff;
   font-size: 18px;
 }
 
@@ -297,7 +290,7 @@ body {
   top: 3px;
   right: 3px;
   color: #fff;
-  background-color: #e56565;
+  background-color: rgb(229, 101, 101, 3%);;
   border-radius: 4px;
 }
 
@@ -311,5 +304,11 @@ body {
 }
 
 .footer {
-
+  display: flex;
+  flex-direction: column;
+  min-height: 70px;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #454f35;
 }

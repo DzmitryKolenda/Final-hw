@@ -7,9 +7,9 @@ class View extends EventEmitter {
     this.form = document.getElementById('form');
     this.formInput = document.getElementById('form-input');
     this.cityList = document.getElementById('city-list');
-    /* this.cityItems = document.querySelectorAll('.city-item'); */
     this.wrapper = document.querySelector('.wrapper');
 
+    this.wrapperRecentPlace = document.querySelector('.wrapper-2');
     this.cityListRecentPlace = document.getElementById('city-list-recent-place');
 
     this.containerText = document.querySelector('.container-text');
@@ -57,7 +57,7 @@ class View extends EventEmitter {
 
   show(citiesWeather) {
     this.deleteCityItem();
-    
+
     citiesWeather.forEach(city => {
       this.addCity(city);
     });
@@ -118,9 +118,11 @@ class View extends EventEmitter {
   }
 
   showWeather(nowCityWeather) {
-    this.containerText.classList.add('displayOf');
+    this.containerText.classList.add('displayOf');    
 
     this.weatherContainer.classList.add('displayOn');
+
+    this.wrapperRecentPlace.classList.add('displayOn');
 
     this.city.textContent = nowCityWeather.name;
 
