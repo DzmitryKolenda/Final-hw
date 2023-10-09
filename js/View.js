@@ -57,7 +57,6 @@ class View extends EventEmitter {
   show(citiesWeather) {
     citiesWeather.forEach(city => {
       this.addCity(city);
-      console.log('CITY', city)
     });
   }
 
@@ -108,7 +107,7 @@ class View extends EventEmitter {
 
   showWeather(nowCityWeather) {
     this.containerText.classList.add('displayOf');
-    
+
     this.weatherContainer.classList.add('displayOn');
 
     this.city.textContent = nowCityWeather.name;
@@ -142,35 +141,25 @@ class View extends EventEmitter {
     const nowDate = new Date(fiveDayCityWeather.list[0].dt_txt);
 
     const weatherOne = this.filterDate(fiveDayCityWeather, 0);
-    console.log('weatherOne', weatherOne);
 
     const weatherTwo = this.filterDate(fiveDayCityWeather, 1);
-    console.log('weatherTwo', weatherTwo);
 
     const weatherThree = this.filterDate(fiveDayCityWeather, 2);
-    console.log('weatherThree', weatherThree);
 
     const weatherFour = this.filterDate(fiveDayCityWeather, 3);
-    console.log('weatherFour', weatherFour);
 
     const weatherFive = this.filterDate(fiveDayCityWeather, 4);
-    console.log('weatherFive', weatherFive);
 
     const dayOfWeek = this.findDayOfWeek(nowDate);
-    console.log('DATE_NOW', nowDate);
-    console.log('dayWeek', dayOfWeek);
 
     const dayThree = new Date(nowDate.setDate(nowDate.getDate() + 2));
     const dayOfWeekThree = this.findDayOfWeek(dayThree);
-    console.log(nowDate,'dayOfWeekThree', dayOfWeekThree);
 
     const dayFour = new Date(nowDate.setDate(nowDate.getDate() + 1));
     const dayOfWeekFour = this.findDayOfWeek(dayFour);
-    console.log(nowDate, 'dayOfWeekFour', dayOfWeekFour);
 
     const dayFive = new Date(nowDate.setDate(nowDate.getDate() + 1));
     const dayOfWeekFive = this.findDayOfWeek(dayFive);
-    console.log('dayOfWeekFive', dayOfWeekFive);
 
     this.dayCartDayWeekThree.textContent = dayOfWeekThree;
     this.dayCartDayWeekFour.textContent = dayOfWeekFour;
@@ -266,7 +255,7 @@ class View extends EventEmitter {
         if(dayMonth === dayMonthArray){
             resDates.push(e);
         }
-    }))
+    }));
 
     return resDates;
   }
@@ -354,13 +343,10 @@ class View extends EventEmitter {
 
           break;
       }
-    }))
+    }));
     
     return icon;
   }
-
-
-
 
   addCityRecentPlace(city) {
     const cityItemRecentPlace = this.createCityItemRecentPlace(city);
@@ -390,132 +376,8 @@ class View extends EventEmitter {
   }
 
   deleteCityItemRecentPlace(id) {
-    console.log('deleteCityItemRecentPlaceID', id);
     const cityItemRecentPlace = this.cityListRecentPlace.querySelector(`[data-id="${id}"]`);
-    console.log(cityItemRecentPlace);
+  
     cityItemRecentPlace.remove();
   }
-  
-  /* constructor(domElementBuilder) {
-    super();
-
-    this.domElementBuilder = domElementBuilder;
-
-    this.form = document.getElementById('form');
-    this.formInput = document.getElementById('form-input');
-    this.todoList = document.getElementById('todo-list');
-
-    this.handleAddTodo = this.handleAddTodo.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-
-    this.form.addEventListener('submit', this.handleAddTodo);
-  }
-  show(todos) {
-    todos.forEach(todo => {
-      this.addTodo(todo);
-    });
-  }
-
-  createTodoItem(todo) {
-    const checkbox = this.domElementBuilder.createCheckbox([{ event: 'change', handler: this.handleToggle }]);
-    const title = this.domElementBuilder.createTitle(todo.title);
-    const editInput = this.domElementBuilder.createEditInput(todo.title);
-    const editButton = this.domElementBuilder.createEditButton([{ event: 'click', handler: this.handleEdit }]);
-    const deleteButton = this.domElementBuilder.createDeleteButton([{ event: 'click', handler: this.handleDelete }]);
-
-    return this.domElementBuilder.createListItem([{ prop: 'data-id', value: todo.id }], [checkbox, title, editInput, editButton, deleteButton]);
-  }
-
-  handleAddTodo(event) {
-    event.preventDefault();
-
-    const title = this.formInput.value;
-
-    if (title.trim() === '') {
-      alert('You need to enter valid toto title!');
-
-      return;
-    }
-
-    this.emit('add', title);
-  }
-
-  handleToggle(event) {
-    const todoItem = event.target.closest('.todo-item');
-    const id = +todoItem.dataset.id;
-    const completed = event.target.checked;
-
-    this.emit('toggle', { id, completed });
-  }
-  handleEdit(event) {
-    const todoItem = event.target.closest('.todo-item');
-    const title = todoItem.querySelector('.todo-title');
-    const editInput = todoItem.querySelector('.todo-input');
-    const editButton = todoItem.querySelector('.todo-item-btn-edit');
-
-    const isEditing = todoItem.classList.contains('editing');
-
-    if (isEditing) {
-      const id = +todoItem.dataset.id;
-      const title = editInput.value;
-
-      this.emit('edit', { id, title });
-    } else {
-      editInput.value = title.textContent;
-      editButton.textContent = 'Save';
-      todoItem.classList.add('editing');
-    }
-  }
-  handleDelete(event) {
-    const todoItem = event.target.closest('.todo-item');
-    const id = +todoItem.dataset.id;
-
-    this.emit('delete', { id });
-  }
-
-  addTodo(todo, isBulkAdd = false) {
-    if (!isBulkAdd) {
-      this.formInput.value = '';
-    }
-
-    const todoItem = this.createTodoItem(todo);
-
-    this.todoList.append(todoItem);
-  }
-
-  toggleTodo(todo) {
-    const todoItem = this.#findListItem(todo.id);
-    const checkbox = todoItem.querySelector('.checkbox');
-
-    checkbox.checked = todo.completed;
-
-    if (todo.completed) {
-      todoItem.classList.add('completed');
-    } else {
-      todoItem.classList.remove('completed');
-    }
-  }
-
-  updateTodo(todo) {
-    const todoItem = this.#findListItem(todo.id);
-    const title = todoItem.querySelector('.todo-title');
-    const editButton = todoItem.querySelector('.todo-item-btn-edit');
-
-    title.textContent = todo.title;
-    editButton.textContent = 'Change';
-
-    todoItem.classList.remove('editing');
-  }
-
-  deleteTodo(id) {
-    const todoItem = this.#findListItem(id);
-
-    this.todoList.removeChild(todoItem);
-  }
-
-  #findListItem(id) {
-    return this.todoList.querySelector(`[data-id="${id}"]`);
-  } */
 }

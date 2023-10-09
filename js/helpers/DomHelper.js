@@ -1,28 +1,4 @@
 class DomHelper {
-  /* createCheckbox(handlers) {
-    return this.createElement({
-      tag: 'input',
-      classList: ['checkbox'],
-      attributes: [{ prop: 'type', value: 'checkbox' }],
-      handlers,
-    });
-  } */
-
-  /* createTitle(title) {
-    return this.createElement({
-      tag: 'label',
-      classList: ['todo-title'],
-      textContent: title,
-    });
-  } */
-
-  /* createEditInput(title) {
-    return this.createElement({
-      tag: 'input',
-      classList: ['form-control', 'todo-input'],
-      textContent: title,
-    });
-  } */
 
   createCityButton(attributes ,handlers, city) {
     return this.createElement({
@@ -43,11 +19,10 @@ class DomHelper {
     });
   }
 
-  createListItem(/* attributes, */ children) {
+  createListItem(children) {
     return this.createElement({
       tag: 'li',
       classList: ['city-item'],
-      /* attributes, */
       children,
       childrenAction: 'append',
     });

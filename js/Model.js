@@ -6,7 +6,6 @@ class Model {
 
   addCityRecentPlace(city) {
     let cityId = (this.citiesRecentPlace.find(elem => elem.id === city.id) && true) || false;
-    console.log(cityId);
 
     let lastCityId = null;
     
@@ -16,12 +15,6 @@ class Model {
       }
 
       this.citiesRecentPlace = [city, ...this.citiesRecentPlace];
-
-      console.log(this.citiesRecentPlace);
-
-      console.log(this.citiesRecentPlace.length);
-
-      console.log(lastCityId);
 
       return {city, lastCityId};
 
@@ -37,40 +30,4 @@ class Model {
     return id;
   }
 
-
-  
-  /* constructor(todos = []) {
-    this.todos = todos;
-  }
-
-  addTodo(todo) {
-    this.todos.push(todo);
-
-    return todo;
-  }
-
-  updateItem(id, dataToUpdate) {
-    let updatedTodo;
-
-    this.todos = this.todos.map(todo => {
-      if (todo.id === id) {
-        updatedTodo = {
-          ...todo,
-          ...dataToUpdate,
-        };
-
-        return updatedTodo;
-      }
-
-      return todo;
-    });
-
-    return updatedTodo;
-  }
-
-  deleteTodo(id) {
-    this.todos = this.todos.filter(todo => todo.id !== id);
-
-    return id;
-  } */
 }
