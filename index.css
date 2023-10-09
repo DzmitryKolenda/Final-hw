@@ -133,7 +133,7 @@ body {
 .container-text-4 {
   position: absolute;
   text-align: center;
-  top: 539px;
+  top: 524px;
   right: 6%;
 }
 
@@ -179,10 +179,6 @@ body {
 .temp {
   font-size: 80px;
   line-height: 60px;
-}
-
-.сelsius {
-  font-size: 55px;
 }
 
 .pattern-humidity {
@@ -257,8 +253,15 @@ body {
   display: none;
 }
 
-.container-2 {
+/* .container-2 {
   display: flex;
+  width: 100%;
+  min-height: 250px;
+  background: url(./image/baground-4.jpg);
+  background-size: 100%;
+} */
+
+.wrapper-2 {
   margin: 0px 40px;
 }
 
@@ -305,4 +308,8 @@ body {
 
 .recent-place-cart:hover button {
   opacity: 1;
+}
+
+.footer {
+
 }

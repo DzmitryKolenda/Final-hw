@@ -1,7 +1,14 @@
 class Model {
 
-  constructor (citiesRecentPlace = [], controller) {
+  constructor (citiesRecentPlace = [], citiesForm = []) {
     this.citiesRecentPlace = citiesRecentPlace;
+    this.citiesForm = citiesForm;
+  }
+
+  addCityForm(citiesWeather) {
+    this.citiesForm.push(citiesWeather);
+    
+    return citiesWeather;
   }
 
   addCityRecentPlace(city) {
@@ -10,8 +17,8 @@ class Model {
     let lastCityId = null;
     
     if (!cityId) {
-      if (this.citiesRecentPlace.length === 5) {
-        lastCityId = this.citiesRecentPlace[4].id;
+      if (this.citiesRecentPlace.length === 10) {
+        lastCityId = this.citiesRecentPlace[9].id;
       }
 
       this.citiesRecentPlace = [city, ...this.citiesRecentPlace];

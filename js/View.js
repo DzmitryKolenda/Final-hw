@@ -7,6 +7,7 @@ class View extends EventEmitter {
     this.form = document.getElementById('form');
     this.formInput = document.getElementById('form-input');
     this.cityList = document.getElementById('city-list');
+    /* this.cityItems = document.querySelectorAll('.city-item'); */
     this.wrapper = document.querySelector('.wrapper');
 
     this.cityListRecentPlace = document.getElementById('city-list-recent-place');
@@ -55,6 +56,8 @@ class View extends EventEmitter {
   }
 
   show(citiesWeather) {
+    this.deleteCityItem();
+    
     citiesWeather.forEach(city => {
       this.addCity(city);
     });
@@ -74,6 +77,15 @@ class View extends EventEmitter {
 
   addCityItemToList (cityItem) {
     this.cityList.append(cityItem);
+  }
+
+  deleteCityItem() {
+    const cityItems = document.querySelectorAll('.city-item');
+    const arrayCityItems = [...cityItems];
+    
+    if (arrayCityItems.length !== 0) {
+      this.cityList.innerHTML = '';
+    }
   }
 
   handleSearch (event) {

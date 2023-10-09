@@ -13,12 +13,14 @@ class Controller {
   }
 
   async searchCity(city) {
-    const citiesWeather = await getCitiesWeather(city);
+      const citiesWeather = await getCitiesWeather(city);
 
-    if (citiesWeather.length === 0) {
+      const cityForm = this.model.addCityForm(citiesWeather);
+
+    if (cityForm.length === 0) {
       alert("Not found. To make search more precise put the city's name.")
     } else {
-      this.view.show(citiesWeather);
+      this.view.show(cityForm);
     }
   }
 
