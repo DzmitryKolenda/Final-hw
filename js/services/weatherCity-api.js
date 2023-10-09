@@ -1,4 +1,4 @@
-const apiKey = '3e731d48020ea04c53258beb7a3e4280';
+const apiKey = '';
 
 const getCitiesWeather = async (city) => {
     return await apiRequest(`/geo/1.0/direct?q=${city}&limit=5&lang=ru&units=metric&appid=${apiKey}`, 'GET')
